@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tabela Periódica</title>
+  <link rel="stylesheet" href="css/tabelainterativa.css" />
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+  <link rel="shortcut icon" href="imgs/favicon.ico" type="image/x-icon">
+</head>
+<?php
+include_once('menu.php');
+?>
+<body class="d-flex fd-col">
+  <header class="d-flex">
+    <div class="btns d-flex">
+      <button class="btn btn-mode" aria-label="alternar modo claro/escuro">
+        <i class="bx bxs-torch"></i>
+      </button>
+      <button class="btn btn-visibility" aria-label="ocultar/exibir elementos">
+        <i class="bx bx-show"></i>
+      </button>
+    </div>
+    <ul class="legend d-flex"></ul>
+  </header>
+
+  <main class="table"></main>
+  <div class="f-block"></div>
+
+  <aside class="tips">
+    <button class="show-tips"><i class="bx bx-right-arrow-alt"></i></button>
+    <ul></ul>
+  </aside>
+
+
+
+  <script type="module" src="js/tabelainterativa.js"></script>
+</body>
+
+</html>

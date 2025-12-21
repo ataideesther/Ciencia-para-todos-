@@ -1,0 +1,795 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: #f6f0e8;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background-color: #ff7562;
+    color: white;
+    padding: 1.5rem;
+    border-radius: 0 0 25px 25px;
+}
+
+header h1 {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.tabs {
+    background-color: white;
+    border-bottom: 1px solid #e5e7eb;
+    padding: 0.5rem;
+    display: flex;
+    gap: 0.25rem;
+}
+
+.tab-button {
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem 0.25rem 0 0;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background-color: #f3f4f6;
+    color: #374151;
+}
+
+.tab-button:hover {
+    background-color: #e5e7eb;
+}
+
+.tab-button.active {
+    background-color: #ff7562;
+    color: white;
+}
+
+.content {
+    flex: 1;
+    overflow: auto;
+    padding: 1rem;
+}
+
+.section-header {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    background-color: white;
+    padding: 0.75rem;
+    border-radius: 20px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.filter-group {
+    display: flex;
+    align-items: center;
+}
+
+.filter-label {
+    color: #4b5563;
+    margin-right: 0.5rem;
+}
+
+.filter-icon {
+    margin-right: 0.25rem;
+    color: #6b7280;
+}
+
+select,
+input {
+    border: 1px solid #d1d5db;
+    border-radius: 20px
+}
+
+.search-container {
+    flex: 1;
+    position: relative;
+    max-width: 20rem;
+    margin-left: auto;
+}
+
+.search-container input {
+    width: 100%;
+    padding-left: 2.25rem;
+}
+
+.search-icon {
+    position: absolute;
+    left: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #9ca3af;
+}
+
+.view-buttons {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.view-button {
+    display: flex;
+    align-items: center;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px
+    background-color: #e5e7eb;
+    border: none;
+    cursor: pointer;
+}
+
+.view-button.active {
+    background-color: #ff7562;
+    color: white;
+    border-radius: 20px;
+}
+
+.view-button i {
+    margin-right: 0.25rem;
+}
+
+.chart-container {
+    height: 250px;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+.question-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.question-item {
+    background-color: white;
+    border-radius: 20px
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.question-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.question-header:hover {
+    background-color: #f9fafb;
+}
+
+.question-title {
+    display: flex;
+    align-items: center;
+}
+
+.question-title i {
+    margin-right: 0.5rem;
+    color: #6b7280;
+}
+
+.question-title h4 {
+    font-weight: 500;
+}
+
+.question-meta {
+    font-size: 0.875rem;
+    color: #6b7280;
+}
+
+.question-acertos {
+    font-weight: 500;
+}
+
+.text-green {
+    color: #16a34a;
+}
+
+.text-red {
+    color: #dc2626;
+}
+
+.question-content {
+    padding: 1.5rem;
+}
+
+.alunos-info {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid #e5e7eb;
+    color: #6b7280;
+    font-size: 0.875rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.alunos-info i {
+    color: #9ca3af;
+}
+
+.question-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.chart-section {
+    flex: 1;
+    min-width: 300px;
+    max-width: 400px;
+}
+
+.alternatives-section {
+    flex: 2;
+    min-width: 300px;
+}
+
+.sub-title {
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.alternatives-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.alternative-item {
+    border: 1px solid #e5e7eb;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.alternative-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0.75rem;
+    background-color: #f9fafb;
+}
+
+.alternative-letter {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    margin-right: 0.5rem;
+    color: white;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.letter-normal {
+    background-color: #ef4444;
+}
+
+.letter-correct {
+    background-color: #10b981;
+}
+
+.correct-label {
+    margin-left: 0.5rem;
+    font-size: 0.875rem;
+    color: #16a34a;
+}
+
+.alternative-count {
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.progress-bar {
+    padding: 0.25rem 0.75rem;
+}
+
+.progress-bg {
+    width: 100%;
+    background-color: #e5e7eb;
+    border-radius: 9999px;
+    height: 0.5rem;
+}
+
+.progress-fill {
+    height: 0.5rem;
+    border-radius: 9999px;
+    background-color: #ef4444;
+}
+
+.progress-fill.correct {
+    background-color: #10b981;
+}
+
+.performance-bar {
+    width: 100%;
+    max-width: 10rem;
+    background-color: #e5e7eb;
+    border-radius: 9999px;
+    height: 0.625rem;
+    margin: 0 auto;
+}
+
+.performance-fill {
+    height: 0.625rem;
+    border-radius: 9999px;
+}
+
+.performance-good {
+    background-color: #10b981;
+}
+
+.performance-medium {
+    background-color: #f59e0b;
+}
+
+.performance-poor {
+    background-color: #ef4444;
+}
+
+.details-button {
+    color: #ff7562;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.details-button:hover {
+    text-decoration: none;
+}
+
+#Titulo {
+    text-align: center;
+}
+
+/* Adicione isso na seção <style> */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    max-width: 800px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.close-modal {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #6b7280;
+}
+
+.close-modal:hover {
+    color: #374151;
+}
+
+/* Adicione ao seu arquivo CSS */
+.loading-state {
+    padding: 2rem;
+    text-align: center;
+    color: #4b5563;
+}
+
+.loading-state i {
+    margin-right: 0.5rem;
+}
+
+.alert {
+    padding: 1rem;
+    border-radius: 0.25rem;
+    margin: 1rem 0;
+}
+
+.alert-info {
+    background-color: #dbeafe;
+    color: #1e40af;
+}
+
+.alert-danger {
+    background-color: #fee2e2;
+    color: #b91c1c;
+}
+
+.tab-button {
+    /* Ajuste para mostrar mais informações */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 250px;
+    text-align: left;
+    padding: 0.75rem 1rem;
+}
+
+/* Responsividade para Análise de Questões
+   Complemento ao arquivo analisedasquestoes.css */
+
+/* Dispositivos muito pequenos (telefones, até 600px) */
+@media only screen and (max-width: 600px) {
+    header h1 {
+        font-size: 1.2rem;
+    }
+
+    .tabs {
+        flex-wrap: wrap;
+    }
+
+    .tab-button {
+        flex: 1 0 100%;
+        max-width: 100%;
+        margin-bottom: 0.25rem;
+        border-radius: 0.25rem;
+    }
+
+    .filter-bar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .filter-group,
+    .search-container {
+        width: 100%;
+        max-width: 100%;
+        margin-bottom: 0.5rem;
+    }
+
+    select,
+    input {
+        width: 100%;
+    }
+
+    .view-buttons {
+        width: 100%;
+        justify-content: space-between;
+        border-radius: 20px;
+    }
+
+    .chart-container {
+        height: 12rem;
+        border-radius: 20px;
+    }
+
+    .question-header {
+        flex-direction: column;
+        align-items: flex-start;
+        border-radius: 20px
+    }
+
+    .question-meta {
+        margin-top: 0.5rem;
+        border-radius: 20px;
+    }
+
+    .question-details {
+        flex-direction: column;
+        border-radius: 20px;
+    }
+
+    .chart-section,
+    .alternatives-section {
+        width: 100%;
+    }
+
+    .students-table th:not(:first-child):not(:last-child),
+    .students-table td:not(:first-child):not(:last-child) {
+        display: none;
+    }
+}
+
+/* Dispositivos pequenos (tablets em retrato, 600px e acima) */
+@media only screen and (min-width: 601px) and (max-width: 768px) {
+    .tabs {
+        overflow-x: auto;
+        flex-wrap: nowrap;
+    }
+
+    .tab-button {
+        flex: 0 0 auto;
+    }
+
+    .filter-bar {
+        flex-wrap: wrap;
+    }
+
+    .filter-group {
+        margin-bottom: 0.5rem;
+    }
+
+    .search-container {
+        order: -1;
+        width: 100%;
+        max-width: 100%;
+        margin-bottom: 0.5rem;
+    }
+
+    .chart-container {
+        height: 14rem;
+    }
+
+    .question-details {
+        flex-direction: column;
+    }
+
+    .chart-section,
+    .alternatives-section {
+        width: 100%;
+    }
+}
+
+/* Dispositivos médios (tablets em paisagem, 769px e acima) */
+@media only screen and (min-width: 769px) and (max-width: 992px) {
+    .tabs {
+        overflow-x: auto;
+    }
+
+    .tab-button {
+        flex: 0 0 auto;
+    }
+
+    .filter-bar {
+        flex-wrap: wrap;
+    }
+
+    .search-container {
+        order: -1;
+        flex: 1 0 100%;
+        margin-bottom: 0.5rem;
+    }
+}
+
+/* Dispositivos grandes (laptops/desktops, 993px e acima) */
+@media only screen and (min-width: 993px) and (max-width: 1200px) {
+    .tabs {
+        overflow-x: auto;
+    }
+}
+
+/* Ajustes para modal em todos os tamanhos */
+@media only screen and (max-width: 992px) {
+    .modal-content {
+        width: 95%;
+        padding: 1rem;
+    }
+}
+
+/* Melhorias gerais de usabilidade para touch */
+@media (hover: none) {
+
+    .tab-button,
+    .view-button,
+    .question-header,
+    .details-button {
+        padding: 0.75rem;
+        /* Área de toque maior */
+    }
+
+    .question-header {
+        min-height: 3.5rem;
+    }
+
+    select,
+    input,
+    button {
+        min-height: 2.5rem;
+    }
+}
+
+/* Ajuste de altura para dispositivos pequenos em modo paisagem */
+@media (max-height: 500px) and (orientation: landscape) {
+    .chart-container {
+        height: 10rem;
+    }
+
+    .modal-content {
+        max-height: 85vh;
+    }
+}
+
+/* Ajustes para tabelas em dispositivos médios */
+@media only screen and (max-width: 992px) {
+    .students-table {
+        font-size: 0.75rem;
+    }
+
+    .students-table th,
+    .students-table td {
+        padding: 0.5rem;
+    }
+
+    .performance-bar {
+        max-width: 6rem;
+    }
+}
+
+/* Fix para Safari iOS e outros navegadores móveis */
+@supports (-webkit-overflow-scrolling: touch) {
+    .content {
+        -webkit-overflow-scrolling: touch;
+    }
+
+    input,
+    select,
+    button {
+        font-size: 16px;
+        /* Evita zoom automático em inputs no iOS */
+    }
+}
+
+/* Seção de respostas dos alunos */
+.student-responses {
+    margin-top: 1.5rem;
+    border-top: 1px solid #e5e7eb;
+    padding-top: 1.5rem;
+}
+
+.student-responses h5 {
+    margin-bottom: 1rem;
+}
+
+.student-responses-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.875rem;
+}
+
+.student-responses-table th,
+.student-responses-table td {
+    padding: 0.5rem;
+    border: 1px solid #e5e7eb;
+    text-align: center;
+}
+
+.student-responses-table th {
+    background-color: #f3f4f6;
+    font-weight: 500;
+}
+
+.student-responses-table tr:nth-child(even) {
+    background-color: #f9fafb;
+}
+
+.student-response-correct {
+    color: #10b981;
+    font-weight: 500;
+}
+
+.student-response-incorrect {
+    color: #ef4444;
+    font-weight: 500;
+}
+
+/* Ajustes para o gráfico de pizza */
+.chart-section canvas {
+    max-height: 250px;
+    width: auto !important;
+    margin: 0 auto;
+}
+
+/* Ajuste específico para o gráfico de desempenho geral */
+#performance-chart {
+    max-height: 230px !important;
+    width: 100% !important;
+}
+
+/* Estilos para a seção de respostas dos alunos */
+.alunos-respostas {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #e5e7eb;
+    border-radius: 20px;
+}
+
+.alunos-respostas h5 {
+    color: #374151;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.alunos-respostas h5 i {
+    color: #6b7280;
+}
+
+.alunos-lista {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+    border-radius: 20px;
+}
+
+.aluno-resposta {
+    background-color: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.375rem;
+    padding: 0.75rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 20px;
+}
+
+.aluno-nome {
+    font-weight: 500;
+    color: #374151;
+}
+
+.resposta-dada {
+    color: #6b7280;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.resposta-dada strong {
+    color: #374151;
+}
+
+.resposta-dada i {
+    font-size: 0.875rem;
+}
+
+.resposta-correta .resposta-dada i {
+    color: #10b981;
+}
+
+.resposta-incorreta .resposta-dada i {
+    color: #ef4444;
+}
+
+.sem-respostas {
+    color: #6b7280;
+    font-style: italic;
+    text-align: center;
+    grid-column: 1 / -1;
+    padding: 1rem;
+}
+
+/* Responsividade para a lista de alunos */
+@media only screen and (max-width: 600px) {
+    .alunos-lista {
+        grid-template-columns: 1fr;
+    }
+
+    .aluno-resposta {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+}

@@ -1,0 +1,251 @@
+:root {
+    --primary-color: #f84884;
+    --secondary-color: #fccddd;
+    --correct-color: #16a34a;
+    --incorrect-color: #dc2626;
+    --text-color: #333;
+    --bg-color: #f8f0e7;
+    --border-radius: 20px;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+body {
+    background-color: #f84884;
+    color: var(--text-color);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.container {
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+    background-color: var(--bg-color);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+}
+
+.results-card {
+    background-color: var(--bg-color);
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+h1 {
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+}
+
+.score-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.score-circle {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary-color), #fccddd);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: var(--shadow);
+}
+
+.score-number {
+    font-size: 3rem;
+    font-weight: bold;
+    color: white;
+}
+
+.score-label {
+    font-size: 1.2rem;
+    color: white;
+}
+
+.score-details {
+    text-align: left;
+}
+
+.score-details p {
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.feedback-message {
+    text-align: left;
+    margin: 2rem 0;
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    background-color: var(--bg-color);
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.feedback-content {
+    flex: 1;
+}
+
+.feedback-content h2 {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.feedback-image {
+    flex-shrink: 0;
+}
+
+.feedback-image img {
+    max-width: 150px;
+    height: auto;
+}
+
+.perfect {
+    color: var(--correct-color);
+}
+
+.good {
+    color: #2563eb;
+}
+
+.average {
+    color: #f59e0b;
+}
+
+.needs-improvement {
+    color: var(--incorrect-color);
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.btn-retry {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn-study {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.questoes {
+    margin-top: 2rem;
+}
+
+.questao {
+    background-color: white;
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: var(--shadow);
+}
+
+.questao h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.questao p {
+    margin-bottom: 1rem;
+}
+
+.alternativa {
+    padding: 0.75rem;
+    margin: 0.5rem 0;
+    border-radius: 8px;
+}
+
+.alternativa.correta {
+    background-color: rgba(22, 163, 74, 0.1);
+    color: var(--correct-color);
+}
+
+.alternativa.incorreta {
+    background-color: rgba(220, 38, 38, 0.1);
+    color: var(--incorrect-color);
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 1rem;
+    }
+
+    .container {
+        padding: 1rem;
+    }
+
+    .score-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .score-details {
+        text-align: center;
+    }
+
+    .button-container {
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
+        text-align: center;
+    }
+
+    .questao {
+        padding: 1rem;
+    }
+
+    .feedback-message {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+
+    .feedback-image {
+        order: -1;
+    }
+} 

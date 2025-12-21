@@ -1,0 +1,135 @@
+body {
+  margin: 0;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  background-color: #f8f0e7;
+}
+
+.quimica {
+  background-color: #6ed4b5;
+  padding: 30px ;
+  text-align: center;
+}
+
+.quimica h1 {
+  color: #f8f0e7;
+  font-size: 40px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.conteudo {
+  max-width: 900px;
+  margin: 0 auto;
+  background-color: #f8f0e7;
+  border-radius: 15px;
+  padding: 20px 30px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.imagem {
+  flex: 1 1 300px;
+  text-align: center;
+}
+
+.imagem img {
+  max-width: 100%;
+  height: auto;
+}
+
+.imagem p {
+  margin-top: 8px;
+  font-weight: 500;
+}
+
+.texto {
+  flex: 1 1 300px;
+  text-align: left;
+  padding: 10px 20px;
+}
+
+.texto p {
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.texto ul {
+  margin-left: 20px;
+  margin-bottom: 10px;
+}
+
+.texto li {
+  margin-bottom: 5px;
+}
+
+.tipos-ligacoes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: #f8f0e7;
+  padding: 30px 20px;
+  gap: 20px;
+}
+
+.ligacao {
+  background-color: #f8f0e7;
+  border: 2px solid #6ed4b5;
+  border-radius: 15px;
+  padding: 20px;
+  width: 280px;
+  text-align: center;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.ligacao h2 {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.ligacao p {
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.ligacao img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.exercicio-container {
+  text-align: center;
+  padding: 20px 0;
+  background-color: #f8f0e7;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.botao-exercicio {
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  font-size: 1.1rem;
+  background: linear-gradient(135deg, #5ac278, #4aa666);
+  color: white !important;
+  text-decoration: none !important;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  min-width: 150px;
+}
+
+.botao-exercicio:hover {
+  background: linear-gradient(135deg, #4aa666, #5ac278);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}

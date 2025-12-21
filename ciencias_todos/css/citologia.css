@@ -1,0 +1,367 @@
+/* Reset específico para a página de citologia */
+.citologia-content * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+body {
+  background-color: #663399;
+  color: #333;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* Adicionar margem à esquerda para acomodar o menu quando aberto */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  padding-left: 70px; /* Espaço para o botão do menu */
+  transition: padding-left 0.4s ease-in-out;
+}
+
+/* Quando o menu está aberto, aumentar o padding */
+.menu-open .container {
+  padding-left: 280px; /* Espaço para o menu aberto (250px + 30px padding) */
+}
+
+@media (max-width: 768px) {
+  .menu-open .container {
+    padding-left: 230px; /* Ajuste para menu menor em telas menores */
+  }
+}
+
+.section {
+  background-color: #f9f3ff;
+  border-radius: 20px;
+  padding: 20px;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+h1, h2 {
+  color: #663399;
+  margin-bottom: 15px;
+}
+
+h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  color: white;
+}
+
+h2 {
+  font-size: 1.8rem;
+}
+
+@media (max-width: 768px) {
+  h1 {
+      font-size: 2rem;
+  }
+  
+  h2 {
+      font-size: 1.5rem;
+  }
+}
+
+p {
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+.cell-container {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  margin: 30px auto;
+  height: 500px;
+}
+
+.cell-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+
+.cell-part {
+  position: absolute;
+  background-color: white;
+  border: 2px solid #000;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: 3px 3px 5px rgba(0,0,0,0.3);
+  transition: transform 0.2s;
+  font-size: 0.9rem;
+  z-index: 10;
+}
+
+@media (max-width: 600px) {
+  .cell-container {
+      height: 400px;
+  }
+  
+  .cell-part {
+      padding: 3px 6px;
+      font-size: 0.7rem;
+      max-width: 100px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+  }
+}
+
+.cell-part:hover {
+  transform: scale(1.05);
+  z-index: 20;
+}
+
+/* Aumentar o z-index do popup para ficar acima do menu */
+.popup {
+  display: none;
+  position: fixed;
+  z-index: 1010; /* Maior que o z-index do menu */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.7);
+  overflow: auto;
+}
+
+.popup-content {
+  background-color: white;
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 500px;
+  position: relative;
+}
+
+@media (max-width: 600px) {
+  .popup-content {
+      margin: 20% auto;
+      width: 95%;
+      padding: 15px;
+  }
+}
+
+.close {
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.two-column {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.column {
+  flex: 1 1 300px;
+  min-width: 250px;
+}
+
+@media (max-width: 768px) {
+  .column {
+      flex: 1 1 100%;
+  }
+}
+
+.cell-type {
+  text-align: center;
+  color: #663399;
+  font-weight: bold;
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+}
+
+.highlight {
+  background-color: #f0e6ff;
+  padding: 10px;
+  border-left: 4px solid #663399;
+  margin: 15px 0;
+}
+
+.content img {
+  max-width: 100%;
+  height: auto;
+}
+
+@media (max-width: 500px) {
+  .container {
+      padding: 10px;
+      padding-left: 50px;
+  }
+  
+  .section {
+      padding: 15px;
+  }
+}
+
+/* Definição específica dos botões da célula vegetal - CORRIGIDO */
+#vegetal-cell-container #vacuolo-veg {
+  top: 12%;
+  left: 22%;
+}
+
+#vegetal-cell-container #nucleo-veg {
+  top: -1%;
+  right: 22%;
+}
+
+#vegetal-cell-container #cloroplasto-veg {
+  top: 40%;
+  left: 8%;
+}
+
+#vegetal-cell-container #reticulo-veg {
+  top: 33%;
+  right: -13%;
+}
+
+#vegetal-cell-container #citoplasma-veg {
+  top: 57%;
+  left: 12%;
+}
+
+#vegetal-cell-container #mitocondria-veg {
+  top: 53%;
+  right: 13%;
+}
+
+#vegetal-cell-container #lisossomo-veg {
+  bottom: 34%;
+  left: 38%;
+}
+
+#vegetal-cell-container #ribossomo-veg {
+  bottom: 64%;
+  right: 42%;
+}
+
+#vegetal-cell-container #parede-veg {
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Definição específica dos botões da célula animal - CORRIGIDO */
+#animal-cell-container #nucleo-ani {
+  top: 13%;
+  left: 35%;
+}
+
+#animal-cell-container #lisossomo-ani {
+  top: -2%;
+  right: 14%;
+}
+
+#animal-cell-container #ribossomo-ani {
+  top: 29%;
+  left: 4%;
+}
+
+#animal-cell-container #reticulo-ani {
+  top: 22%;
+  right: -4%;
+}
+
+#animal-cell-container #citoplasma-ani {
+  top: 43%;
+  left: -2%;
+}
+
+#animal-cell-container #mitocondria-ani {
+  top: 40%;
+  right: -7%;
+}
+
+#animal-cell-container #golgi-ani {
+  bottom: 30%;
+  left: 15%;
+}
+
+#animal-cell-container #centriolo-ani {
+  bottom: 38%;
+  right: 12%;
+}
+
+#animal-cell-container #membrana-ani {
+  bottom: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Ajustes responsivos para os botões */
+@media (max-width: 768px) {
+  #vegetal-cell-container #reticulo-veg {
+      top: 40%;
+      right: 5%;
+      max-width: 120px;
+  }
+  
+  #animal-cell-container #reticulo-ani {
+      top: 30%;
+      right: 5%;
+      max-width: 120px;
+  }
+}
+
+@media (max-width: 600px) {
+  #vegetal-cell-container #reticulo-veg {
+      font-size: 0.6rem;
+      max-width: 90px;
+  }
+  
+  #animal-cell-container #reticulo-ani {
+      font-size: 0.6rem;
+      max-width: 90px;
+  }
+}
+
+.exercicio-container {
+  text-align: center;
+  margin-top: 30px;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.botao-exercicio {
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  font-size: 1.1rem;
+  background: linear-gradient(135deg, #2c005f, #663399);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  min-width: 150px;
+  text-decoration: none;
+}
+
+.botao-exercicio:hover {
+  background: linear-gradient(135deg, #663399, #2c005f);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}

@@ -1,0 +1,237 @@
+/* Estilos Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+:root {
+    --primary-color: #66d0e7;
+    --secondary-color: #4bb4cc;
+    --accent-color: #3ca4bd;
+    --light-bg: #f5f0ea;
+    --dark-text: #333;
+    --light-text: #faf7f5;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --border-radius: 12px;
+}
+
+body {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: #f8f0e7;
+    line-height: 1.6;
+    color: var(--dark-text);
+}
+
+/* Header */
+header {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: var(--light-text);
+    text-align: center;
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+    position: relative;
+    overflow: hidden;
+    border-radius: 0 0 25px 25px;
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('imgs/leaf-pattern.png');
+    opacity: 0.1;
+    z-index: 0;
+}
+
+header h1 {
+    position: relative;
+    font-size: 2.8rem;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+/* Main Content */
+main {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+}
+
+.card {
+    background-color: var(--light-bg);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    margin-bottom: 2.5rem;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-header {
+    background-color: var(--primary-color);
+    color: var(--light-text);
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.card-header h2 {
+    font-size: 1.8rem;
+    margin: 0;
+    color: var(--light-text);
+}
+
+.intro {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    text-align: center;
+    padding: 1.5rem 2rem;
+    color: #555;
+    font-style: italic;
+    border-bottom: 1px solid #eee;
+}
+
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1.5rem;
+    gap: 2rem;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.content .text-content {
+    flex: 1 1 45%;
+    min-width: 300px;
+}
+
+.content .image-container {
+    flex: 1 1 45%;
+    min-width: 300px;
+    text-align: center;
+}
+
+.content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease;
+}
+
+.content img:hover {
+    transform: scale(1.02);
+}
+
+.content p {
+    margin-bottom: 1rem;
+    line-height: 1.7;
+    text-align: justify;
+}
+
+/* Lists */
+.content ul {
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.content ul li {
+    margin-bottom: 0.8rem;
+    position: relative;
+    padding-left: 0.5rem;
+}
+
+.content ul li strong {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+/* Button */
+.button-container {
+    text-align: center;
+    padding: 1rem 0 2rem;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.exercises-button {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    font-size: 1.1rem;
+    background: linear-gradient(135deg, #66d0e7, #4bb4cc);
+    color: var(--light-text);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    min-width: 150px;
+    text-decoration: none;
+}
+
+.exercises-button:hover {
+    background: linear-gradient(135deg, #4bb4cc, #66d0e7);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Links */
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--secondary-color);
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    .content {
+        flex-direction: column;
+    }
+
+    .content .text-content,
+    .content .image-container {
+        flex: 1 1 100%;
+    }
+
+    .intro {
+        font-size: 1.1rem;
+        padding: 1rem 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.8rem;
+    }
+
+    .card-header h2 {
+        font-size: 1.5rem;
+    }
+
+    .exercises-button {
+        width: 80%;
+    }
+}

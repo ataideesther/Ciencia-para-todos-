@@ -1,0 +1,154 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+body {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: #f6f0e8;
+    padding-bottom: 2rem;
+}
+
+h1 {
+    background-color: #f6c700; /* Amarelo forte */
+    padding: 30px;
+    text-align: center;
+    color: #f8f0e7;
+    border-radius: 0 0 25px 25px;
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.15);
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+
+
+/* Container geral dos cards */
+.modelos-container {
+    background-color: #f6f0e8;
+    border: 10px solid #f6c700;
+    padding: 2rem;
+    border-radius: 20px;
+    max-width: 1500px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 3rem;
+}
+
+/* Estilo dos cards */
+.dalton, .thomson, .rutherford, .bohr {
+    background-color: #f6f0e8;
+    border: 5px solid #f6c700;
+    border-radius: 20px;
+    padding: 2rem;
+    width: 100%;
+    min-width: 280px;
+    max-width: 450px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.05);
+    font-family: 'Georgia', serif;
+
+}
+
+.dalton img, .thomson img, .rutherford img, .bohr img {
+    max-width: 120px;
+    height: auto;
+    margin: 10px 0;
+}
+
+/* Estilização das listas */
+ul {
+    list-style-type: disc;
+    padding-left: 1rem;
+    margin-top: 0.5rem;
+}
+
+li {
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+}
+
+/* Destaques com efeitos de botão */
+li:first-child::after,
+li:last-child::after {
+    content: '';
+    display: inline-block;
+    padding: 2px 8px;
+    margin-left: 6px;
+    background-color: #f8f0e7;
+    border-radius: 6px;
+    border: 1px solid black;
+    box-shadow: 2px 2px 3px rgba(0,0,0,0.2);
+    font-weight: 500;
+    font-size: 0.8rem;
+}
+
+.dalton li:first-child::after { content: "bola de bilhar"; }
+.dalton li:last-child::after { content: "Dalton"; }
+
+.thomson li:first-child::after { content: "Pudim de passas"; }
+.thomson li:last-child::after { content: "Thomson"; }
+
+.rutherford li:first-child::after { content: "Planetário"; }
+.rutherford li:last-child::after { content: "Rutherford"; }
+
+.bohr li:first-child::after { content: "Sistema Solar"; }
+.bohr li:last-child::after { content: "Bohr"; }
+
+/* Botão Exercício */
+.botao-exercicio {
+    text-align: center;
+    margin-top: 2rem;
+    width: 100%;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.botao-exercicio button {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    font-size: 1.1rem;
+    background: linear-gradient(135deg, #f6c700, #f6a900);
+    color: #f8f0e7;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    min-width: 150px;
+}
+
+.botao-exercicio button:hover {
+    background: linear-gradient(135deg, #f6a900, #f6c700);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsivo: empilha os cards no mobile */
+@media (max-width: 768px) {
+    .modelos-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .dalton, .thomson, .rutherford, .bohr {
+        width: 100%;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .botao-exercicio {
+        text-align: center;
+    }
+}

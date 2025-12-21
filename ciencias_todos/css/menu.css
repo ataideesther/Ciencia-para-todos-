@@ -1,0 +1,196 @@
+/* Reset específico para o menu, sem afetar outros elementos */
+.sidebar *,
+#menu-btn,
+.overlay {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+/* Botão para abrir o menu */
+#menu-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: #1e1b3a;  /* Cor de fundo definida */
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s, left 0.4s;
+    z-index: 1001;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);  /* Sombra para melhorar a visibilidade */
+}
+
+#menu-btn:hover {
+    background: #3a3755;
+}
+
+/* Sidebar (Menu lateral) */
+.sidebar {
+    position: fixed;
+    width: 250px;
+    height: 100%;
+    background: #1e1b3a;
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    left: -250px;
+    /* Escondido por padrão */
+    transition: left 0.4s ease-in-out;
+    z-index: 999;
+}
+
+/* Mostrar menu quando ativo */
+.sidebar.active {
+    left: 0;
+}
+
+/* Reposicionamento do botão quando o menu estiver aberto */
+.sidebar.active~#menu-btn {
+    left: 260px;
+    /* Afasta o botão para não cobrir o menu */
+}
+
+/* Estilização dos links do menu */
+.sidebar nav a {
+    display: flex;
+    align-items: center;
+    color: white;
+    font-size: 16px;
+    padding: 12px 25px;
+    transition: all 0.3s ease;
+}
+
+.sidebar nav a:hover,
+.sidebar nav a.selected {
+    background: rgba(255, 255, 255, 0.2);
+    border-left: 5px solid #ffffff;
+    padding-left: 20px;
+}
+
+.sidebar nav a i {
+    font-size: 18px;
+    margin-right: 15px;
+}
+
+/* Rodapé com logo e botão de saída */
+.sidebar .footer {
+    padding: 20px;
+    text-align: center;
+}
+
+.sidebar .footer img {
+    width: 150px;
+}
+
+.sidebar .logout {
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    margin-top: 10px;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.sidebar .logout i {
+    margin-left: 10px;
+}
+
+/* Overlay para fechar o menu clicando fora */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    display: none;
+    z-index: 998;
+}
+
+.overlay.active {
+    display: block;
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 200px;
+        left: -200px;
+        /* Escondido inicialmente */
+    }
+
+    .sidebar.active {
+        left: 0;
+    }
+
+    .sidebar.active~#menu-btn {
+        left: 210px;
+        /* Ajusta posição do botão */
+    }
+
+    #menu-btn {
+        top: 15px;
+        left: 15px;
+        font-size: 22px;
+        padding: 8px;
+        background: #1e1b3a;  /* Garantir que a cor de fundo permaneça no responsivo */
+    }
+}
+
+/* Submenu */
+.menu-item {
+    position: relative;
+}
+
+.menu-item .submenu {
+    display: none;
+    flex-direction: column;
+    background-color: #2a2750;
+    margin-left: 10px;
+    border-left: 2px solid white;
+}
+
+.menu-item .submenu li a {
+    font-size: 14px;
+    padding: 8px 25px;
+    color: #ccc;
+}
+
+.menu-item:hover .submenu {
+    display: flex;
+}
+
+/* Removi a seção redundante e conflitante do botão do menu */
+
+/* Estilo para celular */
+@media (max-width: 768px) {
+    .menu-item .submenu {
+        background-color: #2a2750;
+        border-left: none;
+        padding-left: 10px;
+    }
+
+    .menu-item:hover .submenu {
+        display: none;
+    }
+
+    .menu-item>a:after {
+        content: '\\25BC';
+        float: right;
+        margin-right: 10px;
+    }
+
+    .menu-item>a.open+.submenu {
+        display: flex;
+    }
+}

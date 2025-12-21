@@ -1,0 +1,147 @@
+body {
+  margin: 0;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  background-color: #f5ede0;
+}
+
+header {
+  background-color: #71d7e8;
+  padding: 20px;
+  text-align: center;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  color: #fff;
+  font-size: 2,5rem;
+  letter-spacing: 1px;
+  font-weight: bold;
+}
+
+.container {
+  padding: 40px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+table {
+  border-spacing: 20px;
+  padding-right: 100rem;
+}
+
+/* Estilo para o formulário como um todo */
+#formAlunos {
+  padding: 20px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 15px;
+  /* Espaçamento entre o input e o botão salvar */
+  max-width: 80%;
+  margin-left: 40px;
+  flex-wrap: wrap;
+  /* Permite quebra de linha em telas menores */
+}
+
+/* Estilo para o container de inputs */
+#alunosContainer {
+  flex: 0 1 300px;
+  /* Largura base de 300px, mas pode encolher se necessário */
+  width: 100%;
+  /* Garante largura total em telas pequenas */
+}
+
+/* Estilo para cada linha de aluno */
+.linha-aluno {
+  margin-bottom: 10px;
+}
+
+/* Estilo para os inputs */
+input[type="text"] {
+  padding: 15px 30px;
+  border-radius: 30px;
+  border: none;
+  background-color: white;
+  text-align: center;
+  font-size: 14px;
+  width: 100%;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
+  /* Garante que padding não afete a largura total */
+}
+
+input[type="text"]:focus {
+  outline: none;
+  box-shadow: 0 0 8px #71d7e8;
+}
+
+/* Estilo para o botão de salvar */
+input[type="submit"] {
+  padding: 15px 30px;
+  border-radius: 30px;
+  border: none;
+  background-color: #71d7e8;
+  color: white;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  white-space: nowrap;
+  /* Evita quebra de texto */
+  height: fit-content;
+  /* Ajusta altura ao conteúdo */
+}
+
+input[type="submit"]:hover {
+  background-color: #5bc0d1;
+}
+
+/* Media queries para responsividade */
+@media screen and (max-width: 768px) {
+  #formAlunos {
+    flex-direction: column;
+    align-items: stretch;
+    margin-left: 20px;
+    margin-right: 20px;
+    max-width: calc(100% - 40px);
+  }
+
+  #alunosContainer {
+    flex: 1 0 auto;
+  }
+
+  input[type="submit"] {
+    margin-top: 10px;
+    width: 100%;
+  }
+
+  header {
+    font-size: 20px;
+    padding: 15px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  #formAlunos {
+    margin-left: 10px;
+    margin-right: 10px;
+    max-width: calc(100% - 20px);
+    padding: 15px 10px;
+  }
+
+  input[type="text"],
+  input[type="submit"] {
+    padding: 12px 20px;
+    font-size: 14px;
+  }
+
+  header {
+    font-size: 18px;
+    padding: 12px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+  }
+}
+
+input[type="submit"]:hover {
+  background-color: #5bc0d1;
+}

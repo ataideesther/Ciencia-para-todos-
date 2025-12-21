@@ -1,0 +1,361 @@
+/* style1.css */
+body {
+    background-color: #f8f0e7;
+    /* bege claro, tema Citologia */
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background-color: #5b2493;
+    /* roxo Citologia */
+    color: #f8f0e7;
+    padding: 30px 20px;
+    text-align: center;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    font-size: 2.5rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.content-wrapper {
+    display: flex;
+    flex: 1;
+    position: relative;
+    min-height: calc(100vh - 100px);
+    /* altura menos o header */
+}
+
+.container {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.5s ease-in-out, width 0.5s ease-in-out;
+    width: 100%;
+}
+
+.container.shifted {
+    transform: translateX(-40px);
+    width: calc(100% - 380px);
+    /* Reduz a largura para dar espaço à mensagem */
+}
+
+/* Animação para os campos de resposta */
+.pergunta {
+    transition: transform 0.5s ease-in-out;
+}
+
+.container.shifted .pergunta {
+    transform: translateX(-15px);
+}
+
+.jogo {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    justify-items: center;
+    margin-bottom: 30px;
+}
+
+.pergunta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    background: white;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out, scale 0.5s ease-in-out;
+    will-change: transform, opacity, scale;
+    /* Otimiza a performance de animação */
+}
+
+.pergunta p {
+    font-weight: bold;
+    color: #5b2493;
+    /* mantendo o roxo nos textos */
+}
+
+select {
+    padding: 10px;
+    border: 2px solid #5b2493;
+    /* borda roxa */
+    border-radius: 10px;
+    appearance: none;
+    background-color: white;
+    font-weight: bold;
+    color: #5b2493;
+    cursor: pointer;
+    width: 100%;
+    max-width: 200px;
+}
+
+/* Opções corretas e incorretas */
+.correct {
+    background-color: #4CAF50;
+    /* verde certo */
+    color: white;
+}
+
+.incorrect {
+    background-color: #f44336;
+    /* vermelho errado */
+    color: white;
+}
+
+/* Botão Confirmar */
+button {
+    padding: 12px 24px;
+    background-color: #5b2493;
+    color: #f8f0e7;
+    border: none;
+    border-radius: 20px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin: 10px;
+    text-transform: uppercase;
+}
+
+button:hover {
+    background-color: #431a6d;
+}
+
+/* Mensagens de Feedback com Animações */
+.mensagem-feedback {
+    position: fixed;
+    right: -350px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 330px;
+    height: 380px;
+    transition: right 0.5s ease-in-out, opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(91, 36, 147, 0.3);
+    z-index: 100;
+    opacity: 0;
+}
+
+/* Estado preparando a animação */
+.mensagem-feedback.preparing {
+    opacity: 0;
+    right: -350px;
+}
+
+/* Estado visível com animação */
+.mensagem-feedback.visible {
+    right: 20px;
+    opacity: 1;
+    animation: pulsar 0.5s ease-in-out;
+}
+
+/* Estado saindo da tela */
+.mensagem-feedback.hiding {
+    right: -350px;
+    opacity: 0;
+}
+
+/* Animação de pulsar */
+@keyframes pulsar {
+    0% {
+        transform: translateY(-50%) scale(0.95);
+    }
+    50% {
+        transform: translateY(-50%) scale(1.05);
+    }
+    100% {
+        transform: translateY(-50%) scale(1);
+    }
+}
+
+#mensagem-sucesso {
+    background-color: #4CAF50;
+    /* verde */
+}
+
+#mensagem-erro {
+    background-color: #FF4081;
+    /* rosa */
+}
+
+.feedback-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 20px;
+    text-align: center;
+    color: white;
+}
+
+.feedback-content h2 {
+    color: white;
+    font-size: 2rem;
+    margin: 5px 0;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.feedback-content h3 {
+    color: white;
+    font-size: 1.5rem;
+    margin: 5px 0 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.personagem {
+    width: 120px;
+    height: 120px;
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    filter: drop-shadow(0 4px 8px rgba(91, 36, 147, 0.3));
+}
+
+.imagem-feedback {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    animation: flutuar 3s ease-in-out infinite;
+}
+
+@keyframes flutuar {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.botao-feedback {
+    background: linear-gradient(135deg, #5b2493, #431a6d);
+    color: #f8f0e7;
+    padding: 12px 24px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 10px 0;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    border: none;
+    box-shadow: 0 4px 8px rgba(91, 36, 147, 0.3);
+}
+
+.botao-feedback:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(91, 36, 147, 0.4);
+    background: linear-gradient(135deg, #431a6d, #5b2493);
+}
+
+.botoes-erro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: 20px;
+    gap: 10px;
+}
+
+/* Botões com efeito de clique */
+button:active {
+    transform: scale(0.97);
+}
+
+/* Responsivo */
+@media (max-width: 992px) {
+    .container.shifted {
+        width: calc(100% - 340px);
+    }
+
+    .container.shifted .pergunta {
+        transform: translateX(-12px);
+    }
+}
+
+@media (max-width: 768px) {
+    .jogo {
+        grid-template-columns: 1fr;
+    }
+
+    .container.shifted {
+        width: calc(100% - 300px);
+        transform: translateX(-20px);
+    }
+
+    .container.shifted .pergunta {
+        transform: translateX(-10px);
+    }
+
+    .mensagem-feedback {
+        width: 280px;
+    }
+
+    .mensagem-feedback.visible {
+        right: 10px;
+    }
+}
+
+@media (max-width: 576px) {
+    .content-wrapper {
+        flex-direction: column;
+    }
+
+    .container.shifted {
+        width: 100%;
+        transform: translateX(0);
+        margin-top: 10px;
+    }
+
+    .container.shifted .pergunta {
+        transform: translateX(0);
+        /* Sem deslocamento lateral em telas pequenas */
+        transform: translateY(-10px);
+        /* Deslocamento vertical para cima */
+        opacity: 0.95;
+        /* Leve transparência */
+        scale: 0.98;
+        /* Leve redução de tamanho */
+    }
+
+    .mensagem-feedback {
+        position: relative;
+        width: 90%;
+        right: 0;
+        top: 0;
+        transform: translateY(0);
+        margin: 20px auto;
+        display: none;
+    }
+
+    .mensagem-feedback.visible {
+        display: block;
+        right: 0;
+        animation: aparecer-mobile 0.5s ease-in-out;
+    }
+
+    @keyframes aparecer-mobile {
+        0% {
+            opacity: 0;
+            transform: scale(0.9);
+        }
+
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+}
